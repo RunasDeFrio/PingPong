@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Триггер бортика мяча.
+/// </summary>
 public class BallTrigger : MonoBehaviour
 {
     public event Action<Ball> OnBallEnterTrigger;

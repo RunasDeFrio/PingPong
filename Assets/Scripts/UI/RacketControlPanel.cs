@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 namespace UI
 {
+    /// <summary>
+    /// Панель управления ракетками.
+    /// </summary>
     public class RacketControlPanel : MonoBehaviour, IDragHandler
     {
         private IReadOnlyCollection<Racket> _rackets;

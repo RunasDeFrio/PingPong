@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    /// Окно настройки с выбором цвета.
+    /// Пока в процессе :)
+    /// </summary>
     public class SettingsWindow : AbstractWindow
     {
         private SaveData _saveData;

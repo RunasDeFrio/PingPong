@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    /// Панель таймера, показывает текущий результат и лучший.
+    /// </summary>
     public class TimerPanel : MonoBehaviour
     {
         [SerializeField] private TMP_Text text;

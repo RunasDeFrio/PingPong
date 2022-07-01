@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace RunasDev.Core.SaveSystem
 {
+    /// <summary>
+    /// Сохраняет и парсит данные в нужный файл.
+    /// </summary>
     public class Saver
     {
         private readonly string _savePath;

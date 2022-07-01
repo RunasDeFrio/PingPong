@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace PingPongRacket
 {
+    /// <summary>
+    /// Класс ракетки, управляет перемещением.
+    /// </summary>
     public class Racket : MonoBehaviour
     {
         [SerializeField]

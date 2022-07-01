@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Levels
 {
+    /// <summary>
+    /// Фабрика уровня с таймером.
+    /// </summary>
     public class TimeLevelBuilder : Factory<TimeLevelPrefab>
     {
         private readonly TimeLevelPrefab _timeLevelData;

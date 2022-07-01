@@ -8,6 +8,9 @@ using Settings;
 using UI;
 using UnityEngine;
 
+/// <summary>
+/// Основной класс, где происходит основная сборка классов.
+/// </summary>
 public class Root : MonoBehaviour
 {
     [SerializeField] private ProjectSettings _projectSettings;

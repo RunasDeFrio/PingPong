@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace PingPongRacket
 {
+    /// <summary>
+    /// Фабрика ракеток
+    /// </summary>
     public class RacketFactory : Factory<Racket>
     {
         public RacketFactory(GameObject ballPrefab) : base(ballPrefab)

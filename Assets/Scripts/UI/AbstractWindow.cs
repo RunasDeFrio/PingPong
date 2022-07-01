@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace RunasDev.UI
 {
+    /// <summary>
+    /// Базовый класс для окон.
+    /// </summary>
     public abstract class AbstractWindow : MonoBehaviour
     {
         private bool _isOpen;

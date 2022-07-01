@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace RunasDev.Core.Pooling
 {
+    /// <summary>
+    /// Префаб уровня с таймером. Хранит насройки и некоторые созданные объекты.
+    /// </summary>
     public class TimeLevelPrefab : MonoBehaviour
     {
         public BallTrigger[] triggers;

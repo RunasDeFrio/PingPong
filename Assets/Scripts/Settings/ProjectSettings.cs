@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Settings
 {
+    /// <summary>
+    /// Все префабы и настройки находятся в этом классе.
+    /// </summary>
     [CreateAssetMenu(fileName = "ProjectSettings", menuName = "ProjectSettings", order = 0)]
     public class ProjectSettings : ScriptableObject
     {

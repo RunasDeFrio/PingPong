@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 namespace Levels
 {
+    /// <summary>
+    /// Класс основной логики уровня с таймером.
+    /// </summary>
     public class TimeLevel : ILevel
     {
         private readonly Records _records;

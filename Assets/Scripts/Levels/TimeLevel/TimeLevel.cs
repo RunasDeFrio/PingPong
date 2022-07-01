@@ -14,8 +14,9 @@ namespace Levels
         private readonly BallTrigger[] _ballTriggers;
         private readonly Vector2 _ballPosition;
         
-        private float _startTime;
+        private float _time;
         private Ball _ball;
+        private bool _isStart;
 
         public TimeLevel(Records records, BallFactory ballFactory, RacketFactory racketFactory, BallTrigger[] ballTriggers, Vector2 ballPosition)
         {
@@ -29,17 +30,22 @@ namespace Levels
         public event Action OnGameStart;
         public event Action OnGameOver;
 
+        public float ResultTime => Time.time - _time;
+
+        public bool IsStart => _isStart;
+
         public void StartGame()
         {
-            _startTime = Time.time;
-            OnGameStart?.Invoke();
+            _time = Time.time;
         
             foreach (var ballTrigger in _ballTriggers)
             {
                 ballTrigger.OnBallEnterTrigger += OnBallEnterTrigger;
             }
 
-            _ball = _ballFactory.Create(new BallInfo(_ballPosition, Random.insideUnitCircle.normalized * 10, 1f, Color.black));
+            _ball = _ballFactory.Create(_ballPosition, Random.insideUnitCircle.normalized);
+            _isStart = true;
+            OnGameStart?.Invoke();
         }
 
         private void OnBallEnterTrigger(Ball ball)
@@ -50,7 +56,13 @@ namespace Levels
         public void GameOver()
         {
             OnGameOver?.Invoke();
-            var result = Time.time - _startTime;
+            _isStart = false;
+            var result = ResultTime;
+            if (_records.lastRecordTime < result)
+            {
+                _records.lastRecordTime = result;
+            }
+            
             _ballFactory.Destroy(_ball);
             foreach (var ballTrigger in _ballTriggers)
             {

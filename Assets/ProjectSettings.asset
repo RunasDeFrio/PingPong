@@ -15,3 +15,7 @@ MonoBehaviour:
   racketPrefab: {fileID: 7452872078744865608, guid: 402a74495516f17a0ac95d414818a9fd, type: 3}
   ballPrefab: {fileID: 3985183779048883297, guid: 07e71e4a29bc9087bb6f4bae7594c545, type: 3}
   timeTimeLevelPrefab: {fileID: 1392397138493007252, guid: 30761bed68cb89ce4bc14a22e8319d07, type: 3}
+  _ballInfo:
+    speed: 10
+    minScale: 0.5
+    maxScale: 0.7

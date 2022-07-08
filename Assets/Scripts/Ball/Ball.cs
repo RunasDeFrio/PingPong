@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public void StartMove()
-    {
-        
-    }
+    [SerializeField] private SpriteRenderer sprite;
 
-    public void StopMove()
+    public void SetColor(Color color)
     {
-        
+        sprite.color = color;
     }
 }

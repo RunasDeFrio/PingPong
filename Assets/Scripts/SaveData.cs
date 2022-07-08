@@ -5,11 +5,11 @@ using UnityEngine;
 public class SaveData
 {
     public Records Records;
-    public Color BallColor;
+    public int BallColorIndex;
     
     public SaveData()
     {
-        BallColor = Color.white;
+        BallColorIndex = 0;
         Records = new Records();
     }
 }

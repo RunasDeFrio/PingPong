@@ -15,9 +15,9 @@ public class Root : MonoBehaviour
 {
     [SerializeField] private ProjectSettings _projectSettings;
     [SerializeField] private Camera gameCamera;
-    [SerializeField] private TimerPanel timerPanel;
+    [SerializeField] private TopPanel topPanel;
     [SerializeField] private RacketControlPanel controlPanel;
-
+    [SerializeField] private SettingsWindow settingsWindow;
     private Saver _fileSaver;
     private SaveData _saveData;
 
@@ -26,7 +26,7 @@ public class Root : MonoBehaviour
         _fileSaver = new Saver();
         _saveData = _fileSaver.LoadAndParse<SaveData>() ?? new SaveData();
 
-        BallFactory ballFactory = new BallFactory(_projectSettings.BallInfo, ref _saveData.BallColor, _projectSettings.BallPrefab);
+        BallFactory ballFactory = new BallFactory(_projectSettings.BallInfo, _saveData, _projectSettings.Colors, _projectSettings.BallPrefab);
         RacketFactory racketFactory = new RacketFactory(_projectSettings.RacketPrefab);
         TimeLevelBuilder timeLevelBuilder = new TimeLevelBuilder(_projectSettings.TimeLevelPrefab, _saveData.Records,
             ballFactory, racketFactory);
@@ -34,7 +34,10 @@ public class Root : MonoBehaviour
         var timeLevel = timeLevelBuilder.Create();
 
         controlPanel.Construct(gameCamera, timeLevel.Rackets);
-        timerPanel.Open(_saveData.Records, timeLevel.Level);
+        
+        
+        
+        topPanel.Open(_saveData.Records, timeLevel.Level, () => settingsWindow.Open(_saveData, _projectSettings, timeLevel));
 
         timeLevel.Level.StartGame();
     }

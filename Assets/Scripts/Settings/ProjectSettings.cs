@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Settings
@@ -13,7 +14,9 @@ namespace Settings
 
         [SerializeField] private GameObject timeTimeLevelPrefab;
         [SerializeField] private BallInfo _ballInfo;
+        [SerializeField] private List<Color> colors;
 
+        public IReadOnlyList<Color> Colors => colors;
         public GameObject RacketPrefab => racketPrefab;
 
         public GameObject BallPrefab => ballPrefab;

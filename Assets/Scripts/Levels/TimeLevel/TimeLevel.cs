@@ -37,6 +37,8 @@ namespace Levels
 
         public bool IsStart => _isStart;
 
+        public Ball Ball => _ball;
+
         public void StartGame()
         {
             _time = Time.time;
@@ -66,7 +68,8 @@ namespace Levels
                 _records.lastRecordTime = result;
             }
             
-            _ballFactory.Destroy(_ball);
+            _ballFactory.Destroy(Ball);
+            _ball = null;
             foreach (var ballTrigger in _ballTriggers)
             {
                 ballTrigger.OnBallEnterTrigger -= OnBallEnterTrigger;

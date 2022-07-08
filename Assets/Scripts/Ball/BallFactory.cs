@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using RunasDev.Core.Pooling;
 using Settings;
 using UnityEngine;
@@ -5,12 +6,14 @@ using UnityEngine;
 public class BallFactory : Factory<Ball>
 {
     private readonly BallInfo _ballInfo;
-    private readonly Color? _color;
+    private readonly SaveData _saveData;
+    private readonly IReadOnlyList<Color> _colors;
 
-    public BallFactory(BallInfo ballInfo, ref Color color, GameObject ballPrefab) : base(ballPrefab)
+    public BallFactory(BallInfo ballInfo, SaveData saveData, IReadOnlyList<Color> colors, GameObject ballPrefab) : base(ballPrefab)
     {
         _ballInfo = ballInfo;
-        _color = color;
+        _saveData = saveData;
+        _colors = colors;
     }
 
     public Ball Create(Vector2 startPosition, Vector2 speedDirection)
@@ -21,6 +24,7 @@ public class BallFactory : Factory<Ball>
         transform.position = startPosition;
         transform.localScale *= Random.Range(_ballInfo.minScale, _ballInfo.maxScale);
         rb.velocity = speedDirection * _ballInfo.speed;
+        ball.SetColor(_colors[_saveData.BallColorIndex]);
         return ball;
     }
 }
